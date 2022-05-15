@@ -1,26 +1,25 @@
 import React from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import DialogSystem from "./component/DialogSystem"
+import styled from "styled-components"
+import { StyledComponent } from "./type"
 
-function App() {
+
+interface AppProps extends StyledComponent{}
+
+
+const RawApp = (props: AppProps) => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+		<div className={props.className} id="app">
+			<DialogSystem />
 		</div>
 	)
 }
+
+
+const App = styled(RawApp)`
+	height: 100%;
+`
+
+
 
 export default App
