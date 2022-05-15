@@ -8,6 +8,17 @@ This is a sample project. I built a Dialog System using React and Typescript. It
 
 
 
+## Toolset
+
+### Linting, Formatting
+Eslint
+Prettier
+EditorConfig
+
+### React library
+
+
+
 
 ## Changelog
 
