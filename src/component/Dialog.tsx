@@ -42,10 +42,23 @@ const Dialog = styled(RawDialog)`
 	box-shadow: 0px 6px 2px 0px rgba(0,0,0,0.25);
 
 	::after {
-		content: url(${whiteTriangle});
+		/* content: url(${whiteTriangle});
 		position: absolute;
 		width: ${props => props.cornerWidth ? props.cornerWidth : 50}px;
-		height: ${props => props.cornerHeight ? props.cornerHeight : 50}px;
+		height: ${props => props.cornerHeight ? props.cornerHeight : 50}px; */
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		/* left: 10%;
+		bottom: -50px; */
+		border-width: ${props => props.cornerPlacement ? 25 : 0}px;
+		border-style: solid;
+		
+		transform-origin: 0 0;
+		transform: rotate(-45deg);
+		box-shadow: -4px 4px 2px 0 rgba(0, 0, 0, 0.25);
+
 		${props => {
 			if (props.cornerPlacement === false) {	// undefined default to bottom-left
 				return css``
@@ -55,22 +68,28 @@ const Dialog = styled(RawDialog)`
 					return css`
 						right: 10%;
 						bottom: -50px;
+						border-color: transparent transparent white white;
 					`
 				case "top-left":
 					return css`
 						left: 10%;
-						top: -50px;
+						top: 0px;
+						border-color: white white transparent transparent;
+						box-shadow: none;
 					`
 				case "top-right":
 					return css`
 						right: 10%;
-						top: -50px;
+						top: 0px;
+						border-color: white white transparent transparent;
+						box-shadow: none;
 					`
 				case "bottom-left":
 				default:
 					return css`
 						left: 10%;
 						bottom: -50px;
+						border-color: transparent transparent white white;
 					`
 			}
 		}}

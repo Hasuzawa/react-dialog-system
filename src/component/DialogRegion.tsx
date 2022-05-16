@@ -25,7 +25,8 @@ const DialogRegion = styled(RawDialogRegion)`
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	gap: 20px;
+	/* gap: 20px; */
+	gap: 50px;
 
 `
 
