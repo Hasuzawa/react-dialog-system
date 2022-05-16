@@ -10,6 +10,7 @@ const RawDialogRegion = (props: DialogRegionProps) => {
 	return (
 		<div className={props.className}>
 			<Dialog />
+			<Dialog cornerPlacement="bottom-left" />
 			<Dialog cornerPlacement="bottom-right" />
 			<Dialog cornerPlacement="top-left" />
 			<Dialog cornerPlacement="top-right" />
@@ -26,7 +27,7 @@ const DialogRegion = styled(RawDialogRegion)`
 	flex-flow: column nowrap;
 	align-items: center;
 	/* gap: 20px; */
-	gap: 50px;
+	gap: 20px;
 
 `
 

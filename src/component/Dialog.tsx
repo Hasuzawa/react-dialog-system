@@ -9,10 +9,8 @@ type CornerPlacement = false | "top-left" | "top-right" | "bottom-left" | "botto
 interface DialogProps extends StyledComponent {
 	cornerPlacement ?: CornerPlacement
 	minHeight?: number
-	cornerWidth?: number
-	cornerHeight?: number
 	chain?: boolean
-	corner?: false | CornerPlacement
+	corner?: CornerPlacement
 }
 
 
@@ -41,26 +39,37 @@ const Dialog = styled(RawDialog)`
 	border-radius: 20px;
 	box-shadow: 0px 6px 2px 0px rgba(0,0,0,0.25);
 
+	${props => {
+		switch(props.cornerPlacement) {
+			case "bottom-left":
+			case "bottom-right":
+				return css`
+					margin-bottom: 30px;
+				`
+			case "top-left":
+			case "top-right":
+				return css`
+					margin-top: 30px;
+				`
+		}
+	}}
+
 	::after {
-		/* content: url(${whiteTriangle});
-		position: absolute;
-		width: ${props => props.cornerWidth ? props.cornerWidth : 50}px;
-		height: ${props => props.cornerHeight ? props.cornerHeight : 50}px; */
 		content: "";
 		position: absolute;
 		width: 0;
 		height: 0;
-		/* left: 10%;
-		bottom: -50px; */
+
 		border-width: ${props => props.cornerPlacement ? 25 : 0}px;
 		border-style: solid;
+		border-color: white;
 		
 		transform-origin: 0 0;
 		transform: rotate(-45deg);
 		box-shadow: -4px 4px 2px 0 rgba(0, 0, 0, 0.25);
 
 		${props => {
-			if (props.cornerPlacement === false) {	// undefined default to bottom-left
+			if (!props.cornerPlacement) {
 				return css``
 			}
 			switch(props.cornerPlacement) {
@@ -85,7 +94,6 @@ const Dialog = styled(RawDialog)`
 						box-shadow: none;
 					`
 				case "bottom-left":
-				default:
 					return css`
 						left: 10%;
 						bottom: -50px;
