@@ -8,6 +8,6 @@ module.exports = {
 		"prettier",
 	],
 	rules: {
-		"@typescript-eslint/no-empty-interface": 1
-	}
+		"@typescript-eslint/no-empty-interface": 1,
+	},
 }

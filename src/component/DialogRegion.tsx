@@ -1,10 +1,8 @@
-
 import styled from "styled-components"
 import { StyledComponent } from "../type"
 import Dialog from "./Dialog"
 
 interface DialogRegionProps extends StyledComponent {}
-
 
 const RawDialogRegion = (props: DialogRegionProps) => {
 	return (
@@ -19,7 +17,6 @@ const RawDialogRegion = (props: DialogRegionProps) => {
 	)
 }
 
-
 const DialogRegion = styled(RawDialogRegion)`
 	padding: 10px 0px;
 	flex: 2 1 0;
@@ -28,8 +25,6 @@ const DialogRegion = styled(RawDialogRegion)`
 	align-items: center;
 	/* gap: 20px; */
 	gap: 20px;
-
 `
-
 
 export default DialogRegion

@@ -1,18 +1,21 @@
 import styled, { css } from "styled-components"
 import { StyledComponent } from "../type"
-import whiteTriangle from "../image/white_triangle.svg"
+import Typewriter from "./Typewriter"
+import { useState, useEffect } from "react"
 
-
-type CornerPlacement = false | "top-left" | "top-right" | "bottom-left" | "bottom-right"
-
+type CornerPlacement =
+	| false
+	| "top-left"
+	| "top-right"
+	| "bottom-left"
+	| "bottom-right"
 
 interface DialogProps extends StyledComponent {
-	cornerPlacement ?: CornerPlacement
+	cornerPlacement?: CornerPlacement
 	minHeight?: number
 	chain?: boolean
 	corner?: CornerPlacement
 }
-
 
 const RawDialog = (props: DialogProps) => {
 	// const cornerWidth = props.cornerWidth ?? 50
@@ -21,14 +24,12 @@ const RawDialog = (props: DialogProps) => {
 
 	return (
 		<>
-		<div className={props.className}>
-			<p>[text here]</p>
-			{/* <Corner /> */}
-		</div>
+			<div className={props.className}>
+				<Typewriter text="[text here]. hello world." />
+			</div>
 		</>
 	)
 }
-
 
 const Dialog = styled(RawDialog)`
 	position: relative;
@@ -37,10 +38,10 @@ const Dialog = styled(RawDialog)`
 	padding: 10px;
 	background-color: white;
 	border-radius: 20px;
-	box-shadow: 0px 6px 2px 0px rgba(0,0,0,0.25);
+	box-shadow: 0px 6px 2px 0px rgba(0, 0, 0, 0.25);
 
-	${props => {
-		switch(props.cornerPlacement) {
+	${(props) => {
+		switch (props.cornerPlacement) {
 			case "bottom-left":
 			case "bottom-right":
 				return css`
@@ -60,19 +61,19 @@ const Dialog = styled(RawDialog)`
 		width: 0;
 		height: 0;
 
-		border-width: ${props => props.cornerPlacement ? 25 : 0}px;
+		border-width: ${(props) => (props.cornerPlacement ? 25 : 0)}px;
 		border-style: solid;
 		border-color: white;
-		
+
 		transform-origin: 0 0;
 		transform: rotate(-45deg);
 		box-shadow: -4px 4px 2px 0 rgba(0, 0, 0, 0.25);
 
-		${props => {
+		${(props) => {
 			if (!props.cornerPlacement) {
 				return css``
 			}
-			switch(props.cornerPlacement) {
+			switch (props.cornerPlacement) {
 				case "bottom-right":
 					return css`
 						right: 10%;
@@ -104,19 +105,11 @@ const Dialog = styled(RawDialog)`
 	}
 `
 
-
-interface CornerProps extends StyledComponent {
-
-}
-
+interface CornerProps extends StyledComponent {}
 
 const RawCorner = (props: CornerProps) => {
-	return (
-		<div className={props.className}>
-		</div>
-	)
+	return <div className={props.className}></div>
 }
-
 
 const Corner = styled(RawCorner)`
 	position: absolute;
@@ -127,10 +120,14 @@ const Corner = styled(RawCorner)`
 	/* height: 50%; */
 	border-top: 50px solid white;
 	border-right: 50px solid transparent;
-	background: linear-gradient(to bottom right, #007bff 50%, rgba(0,0,0,.5) 50%, transparent 52%);
+	background: linear-gradient(
+		to bottom right,
+		#007bff 50%,
+		rgba(0, 0, 0, 0.5) 50%,
+		transparent 52%
+	);
 	/* filter: drop-shadow(0px 6px 2px 0px rgba(-100,-100,100,0.25));
 	-webkit-filter: drop-shadow(0px 6px 2px 0px rgba(0,0,0,0.25)); */
 `
-
 
 export default Dialog

@@ -3,7 +3,6 @@ import { StyledComponent } from "../type"
 
 interface PersonProps extends StyledComponent {}
 
-
 const RawPerson = (props: PersonProps) => {
 	return (
 		<div className={props.className}>
@@ -12,11 +11,9 @@ const RawPerson = (props: PersonProps) => {
 	)
 }
 
-
 const Person = styled(RawPerson)`
 	background-color: coral;
 	flex: 1 1 0;
 `
-
 
 export default Person

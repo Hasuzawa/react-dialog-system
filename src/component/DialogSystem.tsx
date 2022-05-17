@@ -5,7 +5,6 @@ import Person from "./Person"
 
 interface DialogSystemProps extends StyledComponent {}
 
-
 const RawDialogSystem = (props: DialogSystemProps) => {
 	return (
 		<div className={props.className} id="dialog-system">
@@ -16,13 +15,11 @@ const RawDialogSystem = (props: DialogSystemProps) => {
 	)
 }
 
-
 const DialogSystem = styled(RawDialogSystem)`
 	display: flex;
 	flex-flow: row nowrap;
 	background-color: lightgreen;
 	height: 100%;
 `
-
 
 export default DialogSystem

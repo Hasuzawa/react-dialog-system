@@ -3,9 +3,7 @@ import DialogSystem from "./component/DialogSystem"
 import styled from "styled-components"
 import { StyledComponent } from "./type"
 
-
-interface AppProps extends StyledComponent{}
-
+interface AppProps extends StyledComponent {}
 
 const RawApp = (props: AppProps) => {
 	return (
@@ -15,11 +13,8 @@ const RawApp = (props: AppProps) => {
 	)
 }
 
-
 const App = styled(RawApp)`
 	height: 100%;
 `
-
-
 
 export default App
